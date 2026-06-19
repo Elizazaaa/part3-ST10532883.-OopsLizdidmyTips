@@ -32,60 +32,187 @@
            <li>Follow us on Tiktok @OopsLizdidmyTips</li>
         </ul>
         <center><img src="images/nails2.jpg" style="width:400; height:500;"></center>
-        <form id="signupForm" novalidate>
 
-            <div class="Field">
-                <label for ="fullName">FullName<span class="req">*</span></label>
-                <input type="text" id="FullName" name="fullName" autocomplete="name" placeholder="Elizabeth Monteith">
-                <div class="error-msg" id="FullNameError"></div>
-            </div>
+       <form id="contactForm" onsubmit="return validateForm()">
 
-            <div class="Field">
-                <label for ="email">Your email adress<span class="req">*</span></label>
-                <input type="email" id="email" name="email" autocomplete="email" placeholder="ElizabethMonteith7@gmail.com">
-                <div class="error-msg" id="emailError"></div>
-            </div>
 
-             <div class="Field">
-                <label for ="phone">Contact Number<span class="req">*</span></label>
-                <input type="text" id="phone" name="phone" autocomplete="tel" placeholder="0121928637">
-                <div class="hint">10 digits, no space is required or dash</div>
-                <div class="error-msg" id="PhoneError"></div>
-            </div>
-            
-            
-             <div class="Field">
-                <label for ="Age">Age<span class="req">*</span></label>
-                <input type="text" id="age" name="age" autocomplete="age" placeholder="18">
-                <div class="error-msg" id="AgeError"></div>
-            </div>
+    <input type="text" id="fullname" placeholder="Full Name">
+    <span id="fullnameError"></span><br>
 
-            <div class="Field">
-                <label for ="password">Password<span class="req">*</span></label>
-                <input type="Password" id="password" name="Password" autocomplete="new-password" placeholder="Atleast 8 characters long">
-                <div class="password-strength "><div class= "password-strength-fill" id="StrenghtFill"></div></div>
-                <div class="hint" id="strengthLabel">Use 8+ characters with a number and a Symbol</div>
-                <div class="error-msg" id="PasswordError"></div>
-            </div>
+    <input type="email" id="email" placeholder="Email">
+    <span id="emailError"></span><br>
 
-              <div class="Field">
-                <label for ="Confirmpassword">Confirm Password<span class="req">*</span></label>
-                <input type="password" id="Confirmpassword" name="Confirmpassword" autocomplete="new-password" placeholder="Re-enter Password">
-                <div class="error-msg" id="ConfirmPasswordError"></div>
-            </div>
+    <input type="text" id="phone" placeholder="Phone Number">
+    <span id="phoneError"></span><br>
 
-            <div class="Field">
-                <label for ="bio">Short story<span class="req">*</span></label>
-                <input type="text" id="bio" name="bio" autocomplete="optional, max 150 characters">
-                <div class="char-count" id="biocount">0/150</div>
-                <div class="error-msg" id="BioError"></div>
-            </div>
-            
-            <div>
+    <input type="number" id="age" placeholder="Age">
+    <span id="ageError"></span><br>
+
+    <input type="password" id="password" placeholder="Password">
+    <span id="passwordError"></span><br>
+
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    <span id="confirmPasswordError"></span><br>
+
+    <textarea id="bio" placeholder="Tell us about yourself"></textarea>
+    <span id="bioError"></span><br>
+
             <button type="submit">create account</button> <button type="reset">Clear</button>
-        </div>
-        </form>
+        <style>
+body{
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: rgb(238, 217, 31);
+    margin: 0;
+    padding: 0;
+}
 
+header{
+    text-align: center;
+    padding: 20px;
+}
+
+nav a{
+    color: rgb(238, 217, 31);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+form{
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid rgb(238, 217, 31);
+    border-radius: 10px;
+    background-color: #111;
+}
+
+input,
+textarea{
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(238, 217, 31);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea{
+    height: 100px;
+    resize: vertical;
+}
+
+button{
+    background-color: rgb(238, 217, 31);
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: gold;
+}
+
+span{
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+footer{
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+</style>
+        </form>
+    </div>
+    
+    <script><script>
+function validateForm() {
+
+    let isValid = true;
+
+    // Clear previous errors
+    document.querySelectorAll("span").forEach(span => span.innerHTML = "");
+
+    // Full Name
+    let fullname = document.getElementById("fullname").value.trim();
+    if (fullname.length < 3) {
+        document.getElementById("fullnameError").innerHTML =
+            "Full name must be at least 3 characters.";
+        isValid = false;
+    }
+
+    // Email
+    let email = document.getElementById("email").value.trim();
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerHTML =
+            "Enter a valid email address.";
+        isValid = false;
+    }
+
+    // Phone
+    let phone = document.getElementById("phone").value.trim();
+    let phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+        document.getElementById("phoneError").innerHTML =
+            "Phone number must contain exactly 10 digits.";
+        isValid = false;
+    }
+
+    // Age
+    let age = document.getElementById("age").value;
+    if (age < 18 || age > 100) {
+        document.getElementById("ageError").innerHTML =
+            "Age must be between 18 and 100.";
+        isValid = false;
+    }
+
+    // Password
+    let password = document.getElementById("password").value;
+    let passwordPattern =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if (!passwordPattern.test(password)) {
+        document.getElementById("passwordError").innerHTML =
+            "Password must be at least 8 characters and contain uppercase, lowercase, number and special character.";
+        isValid = false;
+    }
+
+    // Confirm Password
+    let confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        document.getElementById("confirmPasswordError").innerHTML =
+            "Passwords do not match.";
+        isValid = false;
+    }
+
+    // Bio
+    let bio = document.getElementById("bio").value.trim();
+
+    if (bio.length < 20) {
+        document.getElementById("bioError").innerHTML =
+            "Bio must be at least 20 characters long.";
+        isValid = false;
+    }
+
+    return isValid;
+}
+</script>
 
         </main>
         <footer>&copy;ST10532883</footer>
