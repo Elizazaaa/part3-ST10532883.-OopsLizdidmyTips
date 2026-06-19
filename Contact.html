@@ -138,7 +138,7 @@ footer{
         </form>
     </div>
     
-    <script><script>
+    <script>
 function validateForm() {
 
     let isValid = true;
@@ -212,6 +212,33 @@ function validateForm() {
 
     return isValid;
 }
+</script>
+<script>
+        // Mobile navigation toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+		 // Date and time in footer
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        // Update date time immediately and then every second
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
 </script>
 
         </main>
