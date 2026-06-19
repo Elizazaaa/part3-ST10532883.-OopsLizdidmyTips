@@ -27,14 +27,67 @@
             <li> elizabethmonteith7@gmail.com</li>
             <li> 0812191384</li>
             <li><a href="https://www.google.com/maps?q= 44+Stanley+ Ave,+ Braamfontein+ Werf,+ Johannesburg,+ 2092">Adress on google maps</a></li>
+            <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7160.7689127669555!2d28.020701905834954!3d-26.184169130413437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c0a6ffc9379%3A0x3d365796c1f181b!2s44%20STANLEY!5e0!3m2!1sen!2sza!4v1781894001827!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>
            <li>Follow us on instagram @OopsLizdidmyTips</li>
            <li>Follow us on Tiktok @OopsLizdidmyTips</li>
         </ul>
         <center><img src="images/nails2.jpg" style="width:400; height:500;"></center>
+        <form id="signupForm" novalidate>
+
+            <div class="Field">
+                <label for ="fullName">FullName<span class="req">*</span></label>
+                <input type="text" id="FullName" name="fullName" autocomplete="name" placeholder="Elizabeth Monteith">
+                <div class="error-msg" id="FullNameError"></div>
+            </div>
+
+            <div class="Field">
+                <label for ="email">Your email adress<span class="req">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="ElizabethMonteith7@gmail.com">
+                <div class="error-msg" id="emailError"></div>
+            </div>
+
+             <div class="Field">
+                <label for ="phone">Contact Number<span class="req">*</span></label>
+                <input type="text" id="phone" name="phone" autocomplete="tel" placeholder="0121928637">
+                <div class="hint">10 digits, no space is required or dash</div>
+                <div class="error-msg" id="PhoneError"></div>
+            </div>
+            
+            
+             <div class="Field">
+                <label for ="Age">Age<span class="req">*</span></label>
+                <input type="text" id="age" name="age" autocomplete="age" placeholder="18">
+                <div class="error-msg" id="AgeError"></div>
+            </div>
+
+            <div class="Field">
+                <label for ="password">Password<span class="req">*</span></label>
+                <input type="Password" id="password" name="Password" autocomplete="new-password" placeholder="Atleast 8 characters long">
+                <div class="password-strength "><div class= "password-strength-fill" id="StrenghtFill"></div></div>
+                <div class="hint" id="strengthLabel">Use 8+ characters with a number and a Symbol</div>
+                <div class="error-msg" id="PasswordError"></div>
+            </div>
+
+              <div class="Field">
+                <label for ="Confirmpassword">Confirm Password<span class="req">*</span></label>
+                <input type="password" id="Confirmpassword" name="Confirmpassword" autocomplete="new-password" placeholder="Re-enter Password">
+                <div class="error-msg" id="ConfirmPasswordError"></div>
+            </div>
+
+            <div class="Field">
+                <label for ="bio">Short story<span class="req">*</span></label>
+                <input type="text" id="bio" name="bio" autocomplete="optional, max 150 characters">
+                <div class="char-count" id="biocount">0/150</div>
+                <div class="error-msg" id="BioError"></div>
+            </div>
+            
+            <div>
+            <button type="submit">create account</button> <button type="reset">Clear</button>
+        </div>
+        </form>
 
 
         </main>
-
         <footer>&copy;ST10532883</footer>
     </body>
 
